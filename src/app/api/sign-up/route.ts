@@ -2,6 +2,7 @@ import dbConnect from "@/src/lib/DbConnect";
 import UserModel from "@/src/model/User";
 import bcrypt from "bcryptjs";
 import { sendVerificationEmail } from "@/src/helpers/sendverificationEmail";
+import sendOtp from "@/src/helpers/sendcode";
 
 export async function POST(request: Request) {
   await dbConnect();
@@ -43,7 +44,8 @@ export async function POST(request: Request) {
         existingUserByEmail.verifyCodeExpiry = new Date(Date.now() + 3600000);
         await existingUserByEmail.save();
       }
-    } else {
+
+    }  
       const hashedPassword = await bcrypt.hash(password, 10);
       const expiryDate = new Date();
       expiryDate.setHours(expiryDate.getHours() + 1);
@@ -59,15 +61,20 @@ export async function POST(request: Request) {
         messages: [],
       });
 
-      await newUser.save();
-    }
+      const saveduser  = await newUser.save();
+      console.log("saved user",saveduser)
+    
 
     // Send verification email
-    const emailResponse = await sendVerificationEmail(
-      email,
-      username,
-      verifyCode
-    );
+    // const emailResponse = await sendVerificationEmail(
+    //   email,
+    //   username,
+    //   verifyCode
+    // );
+    const emailResponse = await sendOtp(
+      verifyCode,
+      email
+    )
     if (!emailResponse.success) {
       return Response.json(
         {
