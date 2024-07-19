@@ -1,10 +1,5 @@
 import OpenAI from "openai";
-import {
-  GenerateTextResult,
-  OpenAIStream,
-  OpenAIStreamCallbacks,
-  StreamingTextResponse,
-} from "ai";
+import {OpenAIStream, StreamingTextResponse} from "ai"
 import { NextResponse } from "next/server";
 
 const openai = new OpenAI({
