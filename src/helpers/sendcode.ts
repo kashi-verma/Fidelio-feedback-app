@@ -1,5 +1,5 @@
+import * as nodemailer from "nodemailer";
 
-import * as nodemailer from "nodemailer"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 export default async function sendOtp(
   otp: string,
   userMail: string,
@@ -21,7 +21,7 @@ export default async function sendOtp(
     const mailOptions = {
       from: process.env.SENDER_EMAIL,
       to: userMail,
-      subject: "Email Verification For your own Fidelio  Account",
+      subject: "Email Verification For E-Commerce Account",
       text: `Your verification token is: ${otp}`,
     };
 
@@ -31,11 +31,6 @@ export default async function sendOtp(
     return { success: true, message: "OTP verification successful" };
   } catch (error) {
     console.error("Error occurred during OTP sending:", error);
-    return { success: false, message: "OTP verification failed "  };
+    return { success: false, message: "OTP verification failed" };
   }
 }
-
-// sendOtp(
-//      "123213",
-//      "kashishverma2124@gmail.com"
-// )
