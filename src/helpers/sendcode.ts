@@ -1,5 +1,5 @@
-import nodemailer from "nodemailer";
 
+import nodemailer from "nodemailer"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 export default async function sendOtp(
   otp: string,
   userMail: string,
