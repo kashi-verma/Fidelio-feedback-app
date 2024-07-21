@@ -63,7 +63,7 @@ export default function SignUpForm() {
       }
     };
     checkUsernameUnique();
-  }, []);
+  }, [debouncedUsername]);
 
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
     setIsSubmitting(true);
