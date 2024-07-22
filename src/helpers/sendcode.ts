@@ -21,7 +21,7 @@ export default async function sendOtp(
     const mailOptions = {
       from: process.env.SENDER_EMAIL,
       to: userMail,
-      subject: "Email Verification For E-Commerce Account",
+      subject: "Email Verification  For Your Fidelio feedback  Account",
       text: `Your verification token is: ${otp}`,
     };
 
