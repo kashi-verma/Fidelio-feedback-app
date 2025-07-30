@@ -59,23 +59,34 @@ export default function SignInForm() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-800">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            Welcome Back to Fidelio
+    <div className="relative flex justify-center items-center min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#1e3a8a] overflow-hidden">
+      {/* Glowing Blobs */}
+      <div className="absolute -top-32 -left-40 w-[500px] h-[500px] bg-purple-600 rounded-full blur-[160px] opacity-25 z-0" />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-cyan-400 rounded-full blur-[160px] opacity-20 z-0" />
+
+      <div className="z-10 w-full max-w-md p-8 md:p-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl">
+        <div className="text-center mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-300 to-purple-400 text-transparent bg-clip-text mb-2">
+            Welcome Back
           </h1>
-          <p className="mb-4">Sign in to continue your secret conversations</p>
+          <p className="text-gray-300 text-sm">
+            Sign in to continue your anonymous journey.
+          </p>
         </div>
+
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
             <FormField
               name="identifier"
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email/Username</FormLabel>
-                  <Input {...field} />
+                  <FormLabel className="text-white">Email / Username</FormLabel>
+                  <Input
+                    {...field}
+                    className="bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:ring-2 focus:ring-purple-500"
+                    placeholder="Enter your email or username"
+                  />
                   <FormMessage />
                 </FormItem>
               )}
@@ -85,24 +96,34 @@ export default function SignInForm() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <Input type="password" {...field} />
+                  <FormLabel className="text-white">Password</FormLabel>
+                  <Input
+                    type="password"
+                    {...field}
+                    className="bg-white/10 text-white placeholder-gray-400 border border-white/20 focus:ring-2 focus:ring-purple-500"
+                    placeholder="••••••••"
+                  />
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button className="w-full" type="submit">
+            <Button
+              className="w-full mt-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:scale-105 transition transform"
+              type="submit"
+            >
               Sign In
             </Button>
           </form>
         </Form>
-        <div className="text-center mt-4">
-          <p>
-            Not a member yet?{" "}
-            <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">
-              Sign up
-            </Link>
-          </p>
+
+        <div className="text-center mt-6 text-gray-400 text-sm">
+          Not a member yet?{" "}
+          <Link
+            href="/sign-up"
+            className="text-cyan-300 hover:text-purple-400 font-medium"
+          >
+            Sign up
+          </Link>
         </div>
       </div>
     </div>
