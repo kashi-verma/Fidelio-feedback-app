@@ -2,6 +2,7 @@
 
 import { Mail } from "lucide-react";
 import { Button } from "@/src/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -14,51 +15,52 @@ export default function Home() {
   return (
     <>
       {/* NAVBAR */}
-      <header className="w-full bg-[#0b1120] px-4 sm:px-6 md:px-10 py-4 flex items-center justify-between border-b border-white/10 fixed top-0 z-50">
+      <header className="w-full bg-[#0b1120] px-6 md:px-10 py-4 flex items-center justify-between border-b border-white/10 fixed top-0 z-50">
         <div className="text-xl font-bold text-white">Fidelio</div>
-        <Button className="rounded-md px-4 py-2 bg-white text-black hover:bg-gray-100 transition text-sm">
-          Login
-        </Button>
+        <div className="flex gap-4">
+          <Button className="rounded-md px-4 py-2 bg-white text-black hover:bg-gray-100 transition">
+            Login
+          </Button>
+        </div>
       </header>
 
-      {/* MAIN CONTENT */}
-      <main className="pt-28 min-h-screen flex flex-col items-center justify-start px-4 pb-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#1e3a8a] text-white">
-        {/* HERO SECTION */}
-        <section className="text-center max-w-2xl w-full px-2">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight bg-gradient-to-r from-cyan-300 to-purple-500 text-transparent bg-clip-text mb-6">
+      {/* Main Content */}
+      <main className="pt-24 min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#1e3a8a] text-white overflow-hidden">
+
+        {/* Hero Section */}
+        <section className="text-center max-w-3xl z-10 relative px-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight bg-gradient-to-r from-cyan-300 to-purple-500 text-transparent bg-clip-text mb-6">
             Dive into Anonymous Feedback
           </h1>
+          
+          <div className="mt-6">
+           
+          </div>
         </section>
 
-        {/* CAROUSEL SECTION */}
-        <section className="mt-16 w-full max-w-6xl px-2">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 text-center">
+        {/* Carousel */}
+        <section className="mt-20 w-full max-w-6xl relative z-10 px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
             What People Are Saying
           </h2>
 
-          <Carousel
-            opts={{ loop: true }}
-            plugins={[Autoplay({ delay: 4000 })]}
-            className="overflow-hidden"
-          >
-            <CarouselContent className="-ml-2">
+          <Carousel plugins={[Autoplay({ delay: 4000 })]}>
+            <CarouselContent>
               {messages.map((message, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-2 basis-full sm:basis-1/2 lg:basis-1/3"
+                  className="md:basis-1/2 lg:basis-1/3 p-4"
                 >
-                  <div className="h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 flex flex-col justify-between hover:scale-[1.02] transition-all duration-300">
+                  <div className="group relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white shadow-md">
                         <Mail className="w-5 h-5" />
                       </div>
-                      <div className="flex-1">
+                      <div>
                         <h3 className="text-white text-base font-semibold mb-1">
                           {message.title || "Anonymous"}
                         </h3>
-                        <p className="text-sm text-gray-300 leading-snug">
-                          {message.content}
-                        </p>
+                        <p className="text-sm text-gray-200">{message.content}</p>
                       </div>
                     </div>
                     <p className="text-xs text-right text-gray-400 mt-4">
