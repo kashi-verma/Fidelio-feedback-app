@@ -175,27 +175,25 @@ function UserDashboard() {
         </div>
 
         <Separator className="bg-white/20 mb-8" />
-
-        {/* Refresh Button */}
-        <div className="flex justify-end mb-8">
-          <Button
-            variant="outline"
-            onClick={(e) => {
-              e.preventDefault();
-              fetchMessages(true);
-            }}
-            className="border border-white/20 hover:bg-white/10 flex items-center gap-2 text-sm font-medium px-4 py-2"
-          >
-            {isLoading ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <>
-                <RefreshCcw className="h-4 w-4" />
-                Refresh
-              </>
-            )}
-          </Button>
-        </div>
+<div className="flex justify-end mb-8">
+  <Button
+    variant="outline"
+    onClick={(e) => {
+      e.preventDefault();
+      fetchMessages(true);
+    }}
+    className="border border-white/20 hover:bg-white/10 flex items-center justify-center gap-2 text-sm font-medium px-4 py-2 min-w-[110px]"
+  >
+    {isLoading ? (
+      <Loader2 className="h-4 w-4 animate-spin" />
+    ) : (
+      <>
+        <RefreshCcw className="h-4 w-4" />
+        <span>Refresh</span>
+      </>
+    )}
+  </Button>
+</div>
 
         {/* Messages */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
