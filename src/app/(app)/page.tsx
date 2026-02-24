@@ -64,7 +64,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="bg-[#0b1120] w-full border-t border-white/10 py-6 px-4 text-center text-sm text-gray-400">
-        © 2024 <span className="text-white font-semibold">Fidelio</span>. All rights reserved.
+        © 2026 <span className="text-white font-semibold">Fidelio</span>. All rights reserved.
       </footer>
     </>
   );
