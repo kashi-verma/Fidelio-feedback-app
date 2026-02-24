@@ -11,32 +11,30 @@ function Navbar() {
   const user: User = session?.user;
 
   return (
-    <nav className="p-4 md:p-6 shadow-md bg-gray-900 text-white">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <a href="#" className="text-xl font-bold mb-4 md:mb-0">
+    <nav className="sticky top-0 z-10 w-full bg-[#0b1120] border-b border-white/10 shadow-sm px-3 sm:px-6 md:px-10 py-4">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-white">
+        {/* Logo / Brand */}
+        <Link href="/" className="text-2xl font-extrabold tracking-wide bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
           Fidelio
-        </a>
-        {session ? (
-          <>
-            <span className="mr-4">Welcome, {user.username || user.email}</span>
-            <Button
-              onClick={() => signOut()}
-              className="w-full md:w-auto bg-slate-100 text-black"
-              variant="outline"
-            >
-              Logout
-            </Button>
-          </>
-        ) : (
-          <Link href="/sign-in">
-            <Button
-              className="w-full md:w-auto bg-slate-100 text-black"
-              variant={"outline"}
-            >
-              Login
-            </Button>
-          </Link>
-        )}
+        </Link>
+
+        {/* Right Side */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+          {session ? (
+            <>
+              <span className="text-sm sm:text-base text-gray-300">
+                Welcome, <span className="font-semibold">{user.username || user.email}</span>
+              </span>
+              
+            </>
+          ) : (
+            <Link href="/sign-in">
+              <Button className="bg-white text-black hover:bg-gray-200 transition px-4 py-2">
+                Login
+              </Button>
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   );

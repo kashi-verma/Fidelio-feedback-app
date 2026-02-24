@@ -1,8 +1,6 @@
 "use client";
 
 import { Mail } from "lucide-react";
-import { Button } from "@/src/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -14,27 +12,17 @@ import messages from "@/src/messages.json";
 export default function Home() {
   return (
     <>
-      {/* NAVBAR */}
-      <header className="w-full bg-[#0b1120] px-6 md:px-10 py-4 flex items-center justify-between border-b border-white/10 fixed top-0 z-50">
-        <div className="text-xl font-bold text-white">Fidelio</div>
-        <div className="flex gap-4">
-          <Button className="rounded-md px-4 py-2 bg-white text-black hover:bg-gray-100 transition">
-            Login
-          </Button>
-        </div>
-      </header>
-
       {/* Main Content */}
-      <main className="pt-24 min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#1e3a8a] text-white overflow-hidden">
+      <main className="flex-1 flex flex-col items-center justify-center px-6 py-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#1e3a8a] text-white overflow-hidden">
 
         {/* Hero Section */}
         <section className="text-center max-w-3xl z-10 relative px-4">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight bg-gradient-to-r from-cyan-300 to-purple-500 text-transparent bg-clip-text mb-6">
             Dive into Anonymous Feedback
           </h1>
-          
+
           <div className="mt-6">
-           
+
           </div>
         </section>
 
