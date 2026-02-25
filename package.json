@@ -19,6 +19,7 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@react-email/components": "^0.0.19",
     "@react-email/html": "0.0.8",
+    "@vercel/analytics": "^1.6.1",
     "ai": "^3.2.16",
     "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
@@ -59,5 +60,3 @@
     "typescript": "^5"
   }
 }
-
-
